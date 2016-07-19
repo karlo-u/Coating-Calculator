@@ -1,0 +1,523 @@
+<!--:de-->Coating Calculator<!--:--><!--:en-->Coating Calculator<!--:--><!--:zh-->Coating Calculator<!--:-->
+<!--:de-->In order to properly estimate your coating coverage needs, all areas in�<em><span style="text-decoration: underline;"><span style="color: #0000ff; text-decoration: underline;"><strong>BLUE</strong></span></span></em>�and�<em><span style="text-decoration: underline; color: #ffff00;"><strong><span style="text-decoration: underline;">YELLOW�</span></strong></span></em>need to be filled out accordingly
+<h2>Coverage Calculator</h2>
+<form name="coverage">
+<table id="coveragetbl">
+<tbody>
+<tr>
+<th>Products</th>
+<th>Solids by Volume</th>
+<th>Dry Film Thickness (DFT)</th>
+<th>Theoretical Coverage</th>
+<th style="background: yellow;">Practical Coverage Loss Factor:<select class="special_value" name="pcl" onchange="Calculate();"> <option value="0">0%</option> <option value="0.1">10%</option> <option value="0.2">20%</option> <option value="0.3">30%</option> </select></th>
+<th>Estimated Quantity</th>
+<th>Price per Liter</th>
+<th>Price per m2</th>
+<th>Estimated Total Cost</th>
+</tr>
+<tr style="border-top: 1px solid #444; border-bottom: 1px solid #444;">
+<td>Units</td>
+<td>%</td>
+<td>Microns</td>
+<td>m2/Liter</td>
+<td>m2/Liter</td>
+<td>m2</td>
+<td>Liters</td>
+<td>Euro</td>
+<td>Euro</td>
+<td>Euro</td>
+</tr>
+<tr>
+<td>Brand A</td>
+<td><input onkeyup="Calculate();" type="TEXT" name="tcsbv1" value="83" disabled="disabled" size="5" /></td>
+<td><input style="background: #00ccff;" onkeyup="Calculate();" type="TEXT" name="tcdt1" size="5" /></td>
+<td><input type="TEXT" name="tctc1" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="tcpcl1" size="8" /></td>
+<td><input style="background: #00ccff;" onkeyup="Calculate();" type="TEXT" name="tcsoa1" size="5" /></td>
+<td><input type="TEXT" name="tceq1" disabled="disabled" size="8" /></td>
+<td><input style="background: #00ccff;" onkeyup="Calculate();" type="TEXT" name="tcppl1" size="5" /></td>
+<td><input type="TEXT" name="tcppm1" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="tcetc1" disabled="disabled" size="8" /></td>
+</tr>
+<tr>
+<td nowrap="nowrap">Brand B</td>
+<td><input type="TEXT" name="srsbv1" value="75" disabled="disabled" size="5" /></td>
+<td><input style="background: #00ccff;" onkeyup="Calculate();" type="TEXT" name="srdt1" size="5" /></td>
+<td><input type="TEXT" name="srtc1" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="srpcl1" size="8" /></td>
+<td><input style="background: #00ccff;" onkeyup="Calculate();" type="TEXT" name="srsoa1" size="5" /></td>
+<td><input type="TEXT" name="sreq1" disabled="disabled" size="8" /></td>
+<td><input style="background: #00ccff;" onkeyup="Calculate();" type="TEXT" name="srppl1" size="5" /></td>
+<td><input type="TEXT" name="srppm1" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="sretc1" disabled="disabled" size="8" /></td>
+</tr>
+<tr>
+<td nowrap="nowrap">Other</td>
+<td><input style="background: #00ccff;" type="TEXT" name="otsbv1" size="5" /></td>
+<td><input style="background: #00ccff;" onkeyup="Calculate();" type="TEXT" name="otdt1" size="5" /></td>
+<td><input type="TEXT" name="ottc1" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="otpcl1" size="8" /></td>
+<td><input style="background: #00ccff;" onkeyup="Calculate();" type="TEXT" name="otsoa1" size="5" /></td>
+<td><input type="TEXT" name="oteq1" disabled="disabled" size="8" /></td>
+<td><input style="background: #00ccff;" onkeyup="Calculate();" type="TEXT" name="otppl1" size="5" /></td>
+<td><input type="TEXT" name="otppm1" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="otetc1" disabled="disabled" size="8" /></td>
+</tr>
+<tr style="border-top: 1px solid #444;">
+<td>You Need</td>
+<td style="text-align: right;" colspan="2">Liters of Coating:</td>
+<td colspan="3"><input type="TEXT" name="totliters" disabled="disabled" size="8" />Liters</td>
+<td style="text-align: right;" colspan="2">Euro:</td>
+<td colspan="2"><input type="TEXT" name="toteuro" disabled="disabled" size="8" />Euro</td>
+</tr>
+</tbody>
+</table>
+</form>
+<h2>Weight Calculator</h2>
+<form name="weight">
+<h3>Weight vs. Thickness 20 mils (0.5 mm)</h3>
+<table>
+<tbody>
+<tr>
+<th>1</th>
+<th>Weight per lbs/ft?</th>
+<th>weight per lbs/meter?</th>
+<th>weight per kg/meter?</th>
+</tr>
+<tr>
+<td>Brand B</td>
+<td><input style="background: #00ccff;" onkeyup="CalculateW();" type="TEXT" name="srlf1" size="5" /></td>
+<td><input type="TEXT" name="srlm1" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="srkm1" disabled="disabled" size="8" /></td>
+</tr>
+<tr>
+<td>Brand A</td>
+<td><input style="background: #00ccff;" onkeyup="CalculateW();" type="TEXT" name="tclf1" size="5" /></td>
+<td><input type="TEXT" name="tclm1" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="tckm1" disabled="disabled" size="8" /></td>
+</tr>
+</tbody>
+</table>
+<h3>Weight vs. Thickness 40 mils (1 mm)</h3>
+<table>
+<tbody>
+<tr>
+<th>2</th>
+<th>Weight per lbs/ft?</th>
+<th>weight per lbs/meter?</th>
+<th>weight per kg/meter?</th>
+</tr>
+<tr>
+<td>Brand B</td>
+<td><input onkeyup="CalculateW();" type="TEXT" name="srlf2" size="5" /></td>
+<td><input type="TEXT" name="srlm2" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="srkm2" disabled="disabled" size="8" /></td>
+</tr>
+<tr>
+<td>Brand A</td>
+<td><input onkeyup="CalculateW();" type="TEXT" name="tclf2" size="5" /></td>
+<td><input type="TEXT" name="tclm2" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="tckm2" disabled="disabled" size="8" /></td>
+</tr>
+</tbody>
+</table>
+<h3>Weight vs. Thickness 60 mils (1.5 mm)</h3>
+<table>
+<tbody>
+<tr>
+<th>3</th>
+<th>Weight per lbs/ft?</th>
+<th>weight per lbs/meter?</th>
+<th>weight per kg/meter?</th>
+</tr>
+<tr>
+<td>Brand B</td>
+<td><input onkeyup="CalculateW();" type="TEXT" name="srlf3" size="5" /></td>
+<td><input type="TEXT" name="srlm3" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="srkm3" disabled="disabled" size="8" /></td>
+</tr>
+<tr>
+<td>Brand A</td>
+<td><input onkeyup="CalculateW();" type="TEXT" name="tclf3" size="5" /></td>
+<td><input type="TEXT" name="tclm3" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="tckm3" disabled="disabled" size="8" /></td>
+</tr>
+</tbody>
+</table>
+<h3>Weight vs. Thickness 80 mils (2 mm)</h3>
+<table>
+<tbody>
+<tr>
+<th>4</th>
+<th>Weight per lbs/ft?</th>
+<th>weight per lbs/meter?</th>
+<th>weight per kg/meter?</th>
+</tr>
+<tr>
+<td>Brand B</td>
+<td><input onkeyup="CalculateW();" type="TEXT" name="srlf4" size="5" /></td>
+<td><input type="TEXT" name="srlm4" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="srkm4" disabled="disabled" size="8" /></td>
+</tr>
+<tr>
+<td>Brand A</td>
+<td><input onkeyup="CalculateW();" type="TEXT" name="tclf4" size="5" /></td>
+<td><input type="TEXT" name="tclm4" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="tckm4" disabled="disabled" size="8" /></td>
+</tr>
+</tbody>
+</table>
+<h3>Weight vs. Thickness 100 mils (2.5 mm)</h3>
+<table>
+<tbody>
+<tr>
+<th>5</th>
+<th>Weight per lbs/ft?</th>
+<th>weight per lbs/meter?</th>
+<th>weight per kg/meter?</th>
+</tr>
+<tr>
+<td>Brand B</td>
+<td><input onkeyup="CalculateW();" type="TEXT" name="srlf5" size="5" /></td>
+<td><input type="TEXT" name="srlm5" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="srkm5" disabled="disabled" size="8" /></td>
+</tr>
+<tr>
+<td>Brand A</td>
+<td><input onkeyup="CalculateW();" type="TEXT" name="tclf5" size="5" /></td>
+<td><input type="TEXT" name="tclm5" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="tckm5" disabled="disabled" size="8" /></td>
+</tr>
+</tbody>
+</table>
+<h3>Weight vs. Thickness 120 mils (3 mm)</h3>
+<table>
+<tbody>
+<tr>
+<th>6</th>
+<th>Weight per lbs/ft?</th>
+<th>weight per lbs/meter?</th>
+<th>weight per kg/meter?</th>
+</tr>
+<tr>
+<td>Brand B</td>
+<td><input onkeyup="CalculateW();" type="TEXT" name="srlf6" size="5" /></td>
+<td><input type="TEXT" name="srlm6" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="srkm6" disabled="disabled" size="8" /></td>
+</tr>
+<tr>
+<td>Brand A</td>
+<td><input onkeyup="CalculateW();" type="TEXT" name="tclf6" size="5" /></td>
+<td><input type="TEXT" name="tclm6" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="tckm6" disabled="disabled" size="8" /></td>
+</tr>
+</tbody>
+</table>
+<h3>Weight vs. Thickness 140 mils (3.5 mm)</h3>
+<table>
+<tbody>
+<tr>
+<th>7</th>
+<th>Weight per lbs/ft?</th>
+<th>weight per lbs/meter?</th>
+<th>weight per kg/meter?</th>
+</tr>
+<tr>
+<td>Brand B</td>
+<td><input onkeyup="CalculateW();" type="TEXT" name="srlf7" size="5" /></td>
+<td><input type="TEXT" name="srlm7" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="srkm7" disabled="disabled" size="8" /></td>
+</tr>
+<tr>
+<td>Brand A</td>
+<td><input onkeyup="CalculateW();" type="TEXT" name="tclf7" size="5" /></td>
+<td><input type="TEXT" name="tclm7" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="tckm7" disabled="disabled" size="8" /></td>
+</tr>
+</tbody>
+</table>
+<h3>Weight vs. Thickness 160 mils (4 mm)</h3>
+<table>
+<tbody>
+<tr>
+<th>8</th>
+<th>Weight per lbs/ft?</th>
+<th>weight per lbs/meter?</th>
+<th>weight per kg/meter?</th>
+</tr>
+<tr>
+<td>Brand B</td>
+<td><input onkeyup="CalculateW();" type="TEXT" name="srlf8" size="5" /></td>
+<td><input type="TEXT" name="srlm8" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="srkm8" disabled="disabled" size="8" /></td>
+</tr>
+<tr>
+<td>Brand A</td>
+<td><input onkeyup="CalculateW();" type="TEXT" name="tclf8" size="5" /></td>
+<td><input type="TEXT" name="tclm8" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="tckm8" disabled="disabled" size="8" /></td>
+</tr>
+</tbody>
+</table>
+</form><!--:--><!--:en-->In order to properly estimate your coverage needs, all areas in <span style="background: #00ccff;">Blue</span> and <span style="background: yellow;">Yellow</span> need to be filled out accordingly
+<h2>COATINGS: Coverage Rate Calculator</h2>
+<form name="coverage">
+<table id="coveragetbl">
+<tbody>
+<tr>
+<th>Products</th>
+<th>Solids by Volume</th>
+<th>Dry Film Thickness (DFT)</th>
+<th>Theoretical Coverage</th>
+<th style="background: yellow;">Practical Coverage Loss Factor:<select class="special_value" name="pcl" onchange="Calculate();"> <option value="0">0%</option> <option value="0.1">10%</option> <option value="0.2">20%</option> <option value="0.3">30%</option> </select></th>
+<th>Area Size</th>
+<th>Estimated Quantity</th>
+<th>Price per Liter</th>
+<th>Price per m2</th>
+<th>Estimated Total Cost</th>
+</tr>
+<tr style="border-top: 1px solid #444; border-bottom: 1px solid #444;">
+<td>Units</td>
+<td>%</td>
+<td>Microns</td>
+<td>m2/Liter</td>
+<td>m2/Liter</td>
+<td>m2</td>
+<td>Liters</td>
+<td>Euro</td>
+<td>Euro</td>
+<td>Euro</td>
+</tr>
+<tr>
+<td>Insulation</td>
+<td><input onkeyup="Calculate();" type="TEXT" name="tcsbv1" value="83" disabled="disabled" size="5" /></td>
+<td><input style="background: #00ccff;" onkeyup="Calculate();" type="TEXT" name="tcdt1" size="5" /></td>
+<td><input type="TEXT" name="tctc1" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="tcpcl1" size="8" /></td>
+<td><input style="background: #00ccff;" onkeyup="Calculate();" type="TEXT" name="tcsoa1" size="5" /></td>
+<td><input type="TEXT" name="tceq1" disabled="disabled" size="8" /></td>
+<td><input style="background: #00ccff;" onkeyup="Calculate();" type="TEXT" name="tcppl1" size="5" /></td>
+<td><input type="TEXT" name="tcppm1" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="tcetc1" disabled="disabled" size="8" /></td>
+</tr>
+<tr>
+<td nowrap="nowrap">Damping</td>
+<td><input type="TEXT" name="srsbv1" value="75" disabled="disabled" size="5" /></td>
+<td><input style="background: #00ccff;" onkeyup="Calculate();" type="TEXT" name="srdt1" size="5" /></td>
+<td><input type="TEXT" name="srtc1" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="srpcl1" size="8" /></td>
+<td><input style="background: #00ccff;" onkeyup="Calculate();" type="TEXT" name="srsoa1" size="5" /></td>
+<td><input type="TEXT" name="sreq1" disabled="disabled" size="8" /></td>
+<td><input style="background: #00ccff;" onkeyup="Calculate();" type="TEXT" name="srppl1" size="5" /></td>
+<td><input type="TEXT" name="srppm1" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="sretc1" disabled="disabled" size="8" /></td>
+</tr>
+<tr>
+<td nowrap="nowrap">Other</td>
+<td><input style="background: #00ccff;" type="TEXT" name="otsbv1" size="5" /></td>
+<td><input style="background: #00ccff;" onkeyup="Calculate();" type="TEXT" name="otdt1" size="5" /></td>
+<td><input type="TEXT" name="ottc1" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="otpcl1" size="8" /></td>
+<td><input style="background: #00ccff;" onkeyup="Calculate();" type="TEXT" name="otsoa1" size="5" /></td>
+<td><input type="TEXT" name="oteq1" disabled="disabled" size="8" /></td>
+<td><input style="background: #00ccff;" onkeyup="Calculate();" type="TEXT" name="otppl1" size="5" /></td>
+<td><input type="TEXT" name="otppm1" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="otetc1" disabled="disabled" size="8" /></td>
+</tr>
+<tr style="border-top: 1px solid #444;">
+<td>You Need</td>
+<td style="text-align: right;" colspan="2">Liters of Coating:</td>
+<td colspan="3"><input type="TEXT" name="totliters" disabled="disabled" size="8" />Liters</td>
+<td style="text-align: right;" colspan="2">Euro:</td>
+<td colspan="2"><input type="TEXT" name="toteuro" disabled="disabled" size="8" />Euro</td>
+</tr>
+</tbody>
+</table>
+</form>
+<h2>COATINGS: Weight Calculator</h2>
+<form name="weight">
+<h3>Weight vs. Thickness 20 mils (0.5 mm)</h3>
+<table>
+<tbody>
+<tr>
+<th>1</th>
+<th>Weight per lbs/ft?</th>
+<th>weight per lbs/meter?</th>
+<th>weight per kg/meter?</th>
+</tr>
+<tr>
+<td>A</td>
+<td><input style="background: #00ccff;" onkeyup="CalculateW();" type="TEXT" name="srlf1" size="5" /></td>
+<td><input type="TEXT" name="srlm1" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="srkm1" disabled="disabled" size="8" /></td>
+</tr>
+<tr>
+<td>B</td>
+<td><input style="background: #00ccff;" onkeyup="CalculateW();" type="TEXT" name="tclf1" size="5" /></td>
+<td><input type="TEXT" name="tclm1" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="tckm1" disabled="disabled" size="8" /></td>
+</tr>
+</tbody>
+</table>
+<h3>Weight vs. Thickness 40 mils (1 mm)</h3>
+<table>
+<tbody>
+<tr>
+<th>2</th>
+<th>Weight per lbs/ft?</th>
+<th>weight per lbs/meter?</th>
+<th>weight per kg/meter?</th>
+</tr>
+<tr>
+<td>A</td>
+<td><input onkeyup="CalculateW();" type="TEXT" name="srlf2" size="5" /></td>
+<td><input type="TEXT" name="srlm2" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="srkm2" disabled="disabled" size="8" /></td>
+</tr>
+<tr>
+<td>B</td>
+<td><input onkeyup="CalculateW();" type="TEXT" name="tclf2" size="5" /></td>
+<td><input type="TEXT" name="tclm2" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="tckm2" disabled="disabled" size="8" /></td>
+</tr>
+</tbody>
+</table>
+<h3>Weight vs. Thickness 60 mils (1.5 mm)</h3>
+<table>
+<tbody>
+<tr>
+<th>3</th>
+<th>Weight per lbs/ft?</th>
+<th>weight per lbs/meter?</th>
+<th>weight per kg/meter?</th>
+</tr>
+<tr>
+<td>A</td>
+<td><input onkeyup="CalculateW();" type="TEXT" name="srlf3" size="5" /></td>
+<td><input type="TEXT" name="srlm3" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="srkm3" disabled="disabled" size="8" /></td>
+</tr>
+<tr>
+<td>B</td>
+<td><input onkeyup="CalculateW();" type="TEXT" name="tclf3" size="5" /></td>
+<td><input type="TEXT" name="tclm3" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="tckm3" disabled="disabled" size="8" /></td>
+</tr>
+</tbody>
+</table>
+<h3>Weight vs. Thickness 80 mils (2 mm)</h3>
+<table>
+<tbody>
+<tr>
+<th>4</th>
+<th>Weight per lbs/ft?</th>
+<th>weight per lbs/meter?</th>
+<th>weight per kg/meter?</th>
+</tr>
+<tr>
+<td>A</td>
+<td><input onkeyup="CalculateW();" type="TEXT" name="srlf4" size="5" /></td>
+<td><input type="TEXT" name="srlm4" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="srkm4" disabled="disabled" size="8" /></td>
+</tr>
+<tr>
+<td>B</td>
+<td><input onkeyup="CalculateW();" type="TEXT" name="tclf4" size="5" /></td>
+<td><input type="TEXT" name="tclm4" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="tckm4" disabled="disabled" size="8" /></td>
+</tr>
+</tbody>
+</table>
+<h3>Weight vs. Thickness 100 mils (2.5 mm)</h3>
+<table>
+<tbody>
+<tr>
+<th>5</th>
+<th>Weight per lbs/ft?</th>
+<th>weight per lbs/meter?</th>
+<th>weight per kg/meter?</th>
+</tr>
+<tr>
+<td>A</td>
+<td><input onkeyup="CalculateW();" type="TEXT" name="srlf5" size="5" /></td>
+<td><input type="TEXT" name="srlm5" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="srkm5" disabled="disabled" size="8" /></td>
+</tr>
+<tr>
+<td>B</td>
+<td><input onkeyup="CalculateW();" type="TEXT" name="tclf5" size="5" /></td>
+<td><input type="TEXT" name="tclm5" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="tckm5" disabled="disabled" size="8" /></td>
+</tr>
+</tbody>
+</table>
+<h3>Weight vs. Thickness 120 mils (3 mm)</h3>
+<table>
+<tbody>
+<tr>
+<th>6</th>
+<th>Weight per lbs/ft?</th>
+<th>weight per lbs/meter?</th>
+<th>weight per kg/meter?</th>
+</tr>
+<tr>
+<td>A</td>
+<td><input onkeyup="CalculateW();" type="TEXT" name="srlf6" size="5" /></td>
+<td><input type="TEXT" name="srlm6" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="srkm6" disabled="disabled" size="8" /></td>
+</tr>
+<tr>
+<td>B</td>
+<td><input onkeyup="CalculateW();" type="TEXT" name="tclf6" size="5" /></td>
+<td><input type="TEXT" name="tclm6" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="tckm6" disabled="disabled" size="8" /></td>
+</tr>
+</tbody>
+</table>
+<h3>Weight vs. Thickness 140 mils (3.5 mm)</h3>
+<table>
+<tbody>
+<tr>
+<th>7</th>
+<th>Weight per lbs/ft?</th>
+<th>weight per lbs/meter?</th>
+<th>weight per kg/meter?</th>
+</tr>
+<tr>
+<td>A</td>
+<td><input onkeyup="CalculateW();" type="TEXT" name="srlf7" size="5" /></td>
+<td><input type="TEXT" name="srlm7" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="srkm7" disabled="disabled" size="8" /></td>
+</tr>
+<tr>
+<td>B</td>
+<td><input onkeyup="CalculateW();" type="TEXT" name="tclf7" size="5" /></td>
+<td><input type="TEXT" name="tclm7" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="tckm7" disabled="disabled" size="8" /></td>
+</tr>
+</tbody>
+</table>
+<h3>Weight vs. Thickness 160 mils (4 mm)</h3>
+<table>
+<tbody>
+<tr>
+<th>8</th>
+<th>Weight per lbs/ft?</th>
+<th>weight per lbs/meter?</th>
+<th>weight per kg/meter?</th>
+</tr>
+<tr>
+<td>A</td>
+<td><input onkeyup="CalculateW();" type="TEXT" name="srlf8" size="5" /></td>
+<td><input type="TEXT" name="srlm8" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="srkm8" disabled="disabled" size="8" /></td>
+</tr>
+<tr>
+<td>B</td>
+<td><input onkeyup="CalculateW();" type="TEXT" name="tclf8" size="5" /></td>
+<td><input type="TEXT" name="tclm8" disabled="disabled" size="8" /></td>
+<td><input type="TEXT" name="tckm8" disabled="disabled" size="8" /></td>
+</tr>
+</tbody>
+</table>
+</form>�<!--:-->
